@@ -10,8 +10,8 @@
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thrive Education Consulting</title>
-<link rel="stylesheet" href="_ds/modernist-e2b877f5-845e-4171-a3ac-4cfe979959f1/styles.css" />
-<script src="_ds/modernist-e2b877f5-845e-4171-a3ac-4cfe979959f1/_ds_bundle.js"></script>
+<link rel="stylesheet" href="ds/styles.css" />
+<script src="ds/ds-bundle.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;800&display=swap" />
 <script src="image-slot.js"></script>
@@ -291,7 +291,7 @@ a:hover { color: var(--color-accent); }
         <p style="font-size:16px;line-height:27px;margin:32px 0 0;max-width:46ch">Pricing is fixed scope, fixed fee, quoted after the introductory meeting. We will only ever offer a service that proactively benefits the school.</p>
       </div>
       <figure class="grayscale" style="margin:0">
-        <image-slot id="tec-approach-photo" shape="rect" placeholder="Wide photograph: teachers working together, staffroom or planning session" style="width:100%;aspect-ratio:951 / 665" role="img" aria-label="Photograph of teachers working together"></image-slot>
+        <img src="assets/staff-planning.webp" alt="Teachers working together around a table in a classroom" style="display:block;width:100%;aspect-ratio:951 / 665;object-fit:cover" />
       </figure>
     </div>
   </section>
@@ -309,7 +309,7 @@ a:hover { color: var(--color-accent); }
       <div>
         <sc-if value="{{ showFounderPhoto }}" hint-placeholder-val="{{ true }}">
         <figure class="grayscale" style="margin:0 0 48px">
-          <image-slot id="tec-founder-photo" shape="rect" placeholder="Portrait of Beth Claydon" style="width:100%;aspect-ratio:4 / 5" role="img" aria-label="Portrait of Beth Claydon"></image-slot>
+          <img src="assets/beth-claydon.png" alt="Portrait of Beth Claydon" style="display:block;width:100%;height:auto" />
         </figure>
         </sc-if>
         <p style="font-size:11px;line-height:16px;letter-spacing:0.11em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 20px">Selected experience</p>
