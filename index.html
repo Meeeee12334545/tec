@@ -1,319 +1,299 @@
-<!-- @template name="Landing" description="A one-page product landing in the system's own voice — an invented product (Takt: Swiss-clockwork timetables), a ruled hero, stat row, feature rows, a grayscale photograph and a red poster close" -->
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Modernist — landing</title>
-<script src="./ds-base.js"></script>
+<title>Thrive Education Consulting</title>
+<link rel="stylesheet" href="_ds/modernist-e2b877f5-845e-4171-a3ac-4cfe979959f1/styles.css" />
+<script src="_ds/modernist-e2b877f5-845e-4171-a3ac-4cfe979959f1/_ds_bundle.js"></script>
+<script src="image-slot.js"></script>
 <style>
-/* Template scaffolding — page layout and web-scale sizing only; every color,
-   font, radius and shadow comes from ../../styles.css. The voice is the
-   deck's, re-derived for a scrolling page: the grid SHOWS — 2px
-   rules draw the structure — red is spent as a mark, and its one field
-   moment is the poster close (the deck's divider logic: the red page sets
-   nothing small).
-
-   THE RHYTHM: a 28px leading unit (17px Archivo body at ~1.65), 14px
-   half-step; line-heights and block margins in unit multiples, heads
-   cap-trimmed, ?baselines/B to review. The deck's seat-pinning relaxes to
-   per-block discipline on a fluid page. The system's own interface
-   components (nav, buttons, inputs) keep their styles.css leading — the
-   rhythm governs the page's text, not the controls.
-
-   THE LANDING LAWS (shared by all six systems' landing templates):
-   #1 display headers break per sentence (.line spans); #2 the landing
-   advertises an invented product played straight — modernist's is Takt,
-   timetables that run like Switzerland; #3 spacing is cluster-scoped
-   (display leading ratio-governed ≈1.06 for Archivo's tight caps — the
-   display-block lattice exemption — tight single-unit gaps inside a text
-   cluster, the air between sections); #4 no hero eyebrow — the nav brand
-   names the product.
-
-   Optical left alignment: the deck's measured Archivo 800 value carries
-   verbatim (-0.058em where caps lead a display line; em-scaled). */
 :root {
-  --leading: 28px;
-  --half: 14px;
-  --edge: clamp(20px, 5vw, 72px);
-  --measure: 58ch;
+  --color-bg: #ffffff;
+  --color-accent: #2f6b4f;
+  --color-accent-100: #ecf4ef; --color-accent-200: #d2e5da; --color-accent-300: #a9cdba;
+  --color-accent-400: #6ba587; --color-accent-500: #2f6b4f; --color-accent-600: #275943;
+  --color-accent-700: #1e4634; --color-accent-800: #163526; --color-accent-900: #0f2419;
+  --color-accent-2: #2f6b4f;
+  --color-accent-2-100: #ecf4ef; --color-accent-2-200: #d2e5da; --color-accent-2-300: #a9cdba;
+  --color-accent-2-400: #6ba587; --color-accent-2-500: #2f6b4f; --color-accent-2-600: #275943;
+  --color-accent-2-700: #1e4634; --color-accent-2-800: #163526; --color-accent-2-900: #0f2419;
 }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; text-wrap: pretty; }
-.wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--edge); }
-/* the component demo pads the masthead with its own spacing; on the page the
-   masthead's contents take the page gutter and sit on the wrap's text axis
-   (padding-only — full-width paint such as a masthead rule is untouched) */
-.nav { padding-inline: max(var(--edge), calc((100% - 1200px) / 2 + var(--edge))); }
-.nav a { white-space: nowrap; }
-.nav a[aria-current='location'] { color: var(--color-accent); } /* in-page anchor, not
-   a page link — 'location' is the truthful value; carry the component's active ink */
-@media (max-width: 480px) { .nav a { display: none; } } /* phone width: the nav
-   keeps brand + the one action (layout-only — the component's look is
-   untouched); the full link row's min-content crosses narrow-phone widths */
-
-/* — drawn structure: the 2px rule is the section seam (the deck's header
-   band as page grammar; rules span the content column, solid — this system
-   does not fade its rules) — */
-.rule2 { height: 2px; border: 0; margin: 0; background: var(--color-divider); }
-
-/* — kicker (deck grammar: uppercase, tabular, accent; no hanging dash —
-   modernist marks are squares, and they belong to lists, not labels) — */
-.kicker {
-  display: block; font-size: 13px; line-height: var(--half);
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--color-accent-700); /* accent-colored SMALL text takes the deep step —
-     6.4:1, where the base accent measures 3.8:1 (a large-text value; the
-     deck's kickers are 24px, this one is 13px) */
-  font-feature-settings: "tnum" 1;
-  margin: 0 0 calc(var(--leading) - var(--half));
-}
-
-/* — hero — */
-.hero { padding: calc(4 * var(--leading)) 0 calc(3 * var(--leading)); }
-.display {
-  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: clamp(42px, 6.2vw, 84px);
-  line-height: clamp(44.5px, 6.57vw, 89px); /* law #3: ratio-governed ≈1.06 —
-     Archivo's 800 sits tight and all-cap-height; the display-block lattice
-     exemption (no 14px step is both tighter than the old look and clear) */
-  letter-spacing: -0.02em; margin: 0;
-  margin-left: -0.058em; /* optical left alignment — the deck's measured Archivo 800 value */
-  text-box: trim-both cap alphabetic;
-}
-.display .line { display: block; } /* law #1: one sentence per line */
-.hero .sub { font-size: 17px; line-height: var(--leading); max-width: var(--measure);
-  margin: calc(1.5 * var(--leading) - 1cap) 0 0;
-  text-box: trim-both cap alphabetic; } /* 1.5 units: clears the display's descenders with cluster-tight air (law #3) */
-.hero .row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--leading); }
-
-/* — stat row (in-grammar: red stays a MARK on the light ground — the stat
-   numerals take the accent at display size, ≥3:1 as large text per the
-   system's own accent rule; the red FIELD is reserved for the close) — */
-.stats { padding: calc(2.5 * var(--leading)) 0; }
-.stats .grid { display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; gap: calc(1.5 * var(--leading)) var(--leading); }
-.stat-num { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: clamp(34px, 3.4vw, 48px); line-height: calc(2 * var(--leading));
-  color: var(--color-accent); /* display figures stay proportional — the deck's figure policy */
-  margin: 0; margin-left: -0.045em; /* digits lead — the deck's "0"-population value */
-  text-box: trim-both cap alphabetic; }
-.stat-label { font-size: 13px; line-height: var(--half); letter-spacing: 0.08em; text-transform: uppercase;
-  color: color-mix(in srgb, var(--color-text) 70%, transparent); /* small-text ink on the
-     light ground: 70% measures 5.8:1 (the deck's 55% furniture mix is a
-     24px large-text convention — at 13px the 4.5:1 bar applies, and 55%
-     measures only 3.7:1 here) */
-  margin: var(--half) 0 0; }
-
-/* — feature rows (the deck's ruled-toc grammar: 2px rules ON the seams,
-   red square marks hanging at the numbers — drawn structure, no cards) — */
-.features { padding: calc(3 * var(--leading)) 0 calc(2.5 * var(--leading)); }
-.feature { display: grid; grid-template-columns: minmax(64px, 160px) minmax(0, 420px) minmax(0, 1fr);
-  gap: var(--leading) clamp(24px, 4vw, 72px); align-items: baseline;
-  padding: calc(1.5 * var(--leading)) 0; }
-.feature + .feature { border-top: 2px solid var(--color-divider); } /* the ruled seam — solid, the system's weight */
-.f-num { position: relative; font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: 15px; line-height: var(--leading); color: var(--color-text);
-  font-feature-settings: "tnum" 1; margin: 0; text-box: trim-both cap alphabetic; }
-.f-num::before { content: ""; position: absolute; left: -24px; top: calc(0.5cap - 5px);
-  width: 10px; height: 10px; background: var(--color-accent); } /* the deck's 10px red square,
-     hanging left of the number's axis — at narrow widths the gutter folds it away */
-@media (max-width: 1280px) { .f-num::before { display: none; } }
-.f-title { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: 24px; line-height: var(--leading); letter-spacing: -0.01em;
-  margin: 0; text-box: trim-both cap alphabetic; }
-.f-copy { font-size: 15.5px; line-height: var(--leading); margin: 0;
-  color: color-mix(in srgb, var(--color-text) 78%, transparent);
-  max-width: 52ch; text-box: trim-both cap alphabetic; }
-
-/* — imagery split (grayscale photograph — the system prints in black and
-   white; the box pins the bundled asset's 951×665 ratio so swaps
-   cover-crop into the same frame) — */
-.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: var(--leading) clamp(24px, 5vw, 96px); align-items: center;
-  padding: calc(2 * var(--leading)) 0 calc(3 * var(--leading)); }
-.split-title { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: 32px; line-height: calc(1.5 * var(--leading)); letter-spacing: -0.015em;
-  margin: 0; text-box: trim-both cap alphabetic; }
-.split-copy .note { font-size: 15.5px; line-height: var(--leading);
-  color: color-mix(in srgb, var(--color-text) 78%, transparent);
-  margin: calc(var(--leading) - 1cap) 0 0; max-width: 48ch; text-box: trim-both cap alphabetic; }
-.split-figure { margin: 0; }
-.split-figure image-slot { width: 100%; aspect-ratio: 951 / 665; }
-
-/* — quote (hanging punctuation, the deck's measured Archivo advances) — */
-.quote { padding: calc(2.5 * var(--leading)) 0 calc(3.5 * var(--leading)); }
-.quote blockquote {
-  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: clamp(24px, 2.6vw, 34px); line-height: calc(1.5 * var(--leading));
-  letter-spacing: -0.015em; max-width: 32ch; margin: 0;
-  text-indent: -0.496em; /* hang the opening “ (the deck's measured advance in the 800) */
-  text-box: trim-both cap alphabetic;
-}
-.quote figcaption { font-size: 15.5px; line-height: var(--leading);
-  color: color-mix(in srgb, var(--color-text) 70%, transparent); /* 5.8:1 — see .stat-label */
-  margin: calc(2 * var(--leading) - 1cap) 0 0; /* two grid units below the quote's
-     last baseline — one reads as part of the quote block; the attribution needs air */
-  text-indent: -1.209em; /* hang the leading em-dash + space (measured in the Regular) */
-  text-box: trim-both cap alphabetic; }
-
-@media (max-width: 720px) {
-  /* the phone gutter (--edge bottoms out at 20px) is narrower than the hung
-     marks' measured advances, so a hung “ or em-dash would press into or past
-     the viewport edge — seat the quote flush below this width; the hang
-     returns with the wider gutter */
-  .quote blockquote, .quote figcaption { text-indent: 0; }
-}
-
-/* — the red poster close (the deck's divider logic: the accent's one field
-   moment, type reversed to the paper token). COPY on the red is
-   display-grade only — paper display type measures 3.8:1, the deck
-   dividers' own derivation. The one small element is the ghost button, a
-   CONTROL: paper-on-red measures the same 3.8:1, which meets the system's
-   documented interface-chrome bar (the readme tunes the accent pair to at
-   least 3:1 — "enough for icons, large text and interface chrome, not for
-   body copy") — the same bar the system's own accent-filled primary button
-   label rides everywhere. */
-.close { background: var(--color-accent); color: var(--color-bg); }
-.close .wrap { padding-top: calc(3 * var(--leading)); padding-bottom: calc(3 * var(--leading)); }
-.close h3 { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: clamp(34px, 4.2vw, 56px); line-height: clamp(36px, 4.45vw, 59.4px); /* ≈1.06 —
-     display-grade, so it carries the display-block lattice exemption (the
-     rhythm probe excludes .display and .close h3 alike) */
-  letter-spacing: -0.015em; margin: 0; margin-left: -0.058em;
-  text-box: trim-both cap alphabetic; }
-.close h3 .line { display: block; }
-.close .row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: calc(1.5 * var(--leading)); }
-.close .btn-ghost { color: var(--color-bg); border-color: var(--color-bg); } /* paper outline on the red field */
-footer { padding: calc(2 * var(--leading)) 0; font-size: 13px; line-height: var(--leading);
-  color: color-mix(in srgb, var(--color-text) 70%, transparent); /* 5.8:1 — see .stat-label */ }
-
-/* — responsive collapse — */
-/* the feature grid's fixed-max columns (160 + 420 + gaps) crush the copy
-   column in the tablet band, so it collapses earlier than the page */
-@media (max-width: 880px) {
-  .feature { grid-template-columns: 1fr; gap: var(--half); }
-  .f-copy { max-width: var(--measure); }
-}
-@media (max-width: 720px) {
-  .hero { padding-top: calc(2.5 * var(--leading)); }
-  .stats .grid { grid-template-columns: repeat(2, 1fr); justify-content: start; }
-  .split { grid-template-columns: 1fr; }
-  .split-figure { order: -1; }
-}
-
-/* Review aid: the 28px rhythm drawn as hairlines — debug chrome, toggled by
-   ?baselines or the B key, never part of the look. */
-body[data-baselines] { position: relative; }
-body[data-baselines]::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background:
-    repeating-linear-gradient(to bottom,
-      color-mix(in srgb, var(--color-accent) 35%, transparent) 0 1px,
-      transparent 1px var(--leading)),
-    repeating-linear-gradient(to bottom,
-      transparent 0 var(--half),
-      color-mix(in srgb, var(--color-accent) 16%, transparent) var(--half) calc(var(--half) + 1px),
-      transparent calc(var(--half) + 1px) var(--leading));
-}
+body { margin: 0; text-wrap: pretty; -webkit-font-smoothing: antialiased; }
+a { color: var(--color-accent-700); text-underline-offset: 3px; }
+a:hover { color: var(--color-accent); }
 </style>
-</head>
-<body>
-<nav class="nav">
-  <span class="nav-brand">Takt</span>
-  <a href="#product" aria-current="location">Product</a>
-  <a href="#network">Network</a>
-  <a href="#start">Start</a>
-  <button type="button" class="btn btn-primary">Get started</button>
+</helmet>
+
+<nav class="nav" style="position:sticky;top:0;z-index:20;background:var(--color-bg);flex-wrap:wrap;row-gap:8px;padding-inline:max(clamp(20px,5vw,72px), calc((100% - 1200px) / 2 + clamp(20px,5vw,72px)))">
+  <span class="nav-brand" style="display:flex;align-items:center;gap:11px;flex-wrap:wrap">
+    <svg width="39" height="32" viewBox="0 0 142 118" fill="var(--color-accent)" aria-hidden="true" style="display:block;flex:0 0 auto"><path d="M48 30 L4 42 L8.5 47 Q26 47 47.5 47.5 C47 55 48 71 52 80 C56 89 64 95 74 95 C86 95 96 89 102 79 L130 95 L138 83.5 L112 66.5 C106 58 99 52 94 45 C92 41 93.5 38 93 32 C92 22 86 14 74 13 C62 12 52 18 48 30 Z"/><circle cx="60" cy="32" r="4" fill="var(--color-bg)"/><rect x="67" y="93" width="3.5" height="15"/><rect x="80" y="93" width="3.5" height="15"/><rect x="28" y="108" width="108" height="3.5"/></svg>
+    <span style="display:flex;align-items:baseline;gap:11px;flex-wrap:wrap">Thrive<span style="font-family:var(--font-body);font-weight:400;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 62%, transparent)">Education Consulting</span></span>
+  </span>
+  <a href="#why" style="white-space:nowrap">Why</a>
+  <a href="#services" style="white-space:nowrap">Services</a>
+  <a href="#approach" style="white-space:nowrap">Approach</a>
+  <a href="#about" style="white-space:nowrap">About</a>
+  <a class="btn btn-primary" href="mailto:hello@thrive-education-consulting.com.au" style="white-space:nowrap;color:var(--color-bg)">Book an introductory meeting</a>
 </nav>
-<div class="wrap">
 
-  <section class="hero">
-    <h1 class="display"><span class="line">The 7:02 leaves at 7:02.</span> <span class="line">Plan on it.</span></h1>
-    <p class="sub">Takt is timetable infrastructure for people who run things: clockface scheduling, guaranteed connections, and disruption plans that are ready before the disruption is. Built like a Swiss railway, because it is one.</p>
-    <div class="row">
-      <button type="button" class="btn btn-primary">Start scheduling</button>
-      <button type="button" class="btn btn-ghost">Read the timetable</button>
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+
+  <section style="padding:112px 0 84px">
+    <h1 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(40px,6.2vw,84px);line-height:1.06;letter-spacing:-0.02em;margin:0 0 0 -0.058em;text-box:trim-both cap alphabetic">
+      <span style="display:block">Give your teachers their time back.</span>
+      <span style="display:block">The rest follows.</span>
+    </h1>
+    <p style="font-size:17px;line-height:28px;max-width:58ch;margin:42px 0 0;text-box:trim-both cap alphabetic">Thrive Education Consulting works with independent, Catholic and Anglican schools on curriculum and assessment, digital technologies and AI, and the administrative load teachers carry in unpaid hours. Advisory, not directive: we build capability rather than replace it, and every engagement leaves behind something the school can use on Monday.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+      <a class="btn btn-primary" href="mailto:hello@thrive-education-consulting.com.au">Book an introductory meeting</a>
+      <a class="btn btn-secondary" href="#services">See what we do</a>
     </div>
   </section>
 
-  <hr class="rule2" />
+  <hr style="height:2px;border:0;margin:0;background:var(--color-divider)" />
 
-  <section class="stats" aria-label="Takt, by the numbers">
-    <div class="grid">
-      <div><p class="stat-num">99.7%</p><p class="stat-label">Arrivals within three minutes</p></div>
-      <div><p class="stat-num">7,340</p><p class="stat-label">Departures orchestrated daily</p></div>
-      <div><p class="stat-num">60min</p><p class="stat-label">One pulse — the whole network breathes together</p></div>
-      <div><p class="stat-num">0</p><p class="stat-label">Excuses per annum</p></div>
+  <sc-if value="{{ showCredentialFigures }}" hint-placeholder-val="{{ true }}">
+  <section aria-label="Background" style="padding:70px 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:42px clamp(24px,4vw,56px)">
+      <div>
+        <p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(34px,3.4vw,48px);line-height:56px;color:var(--color-accent);margin:0 0 0 -0.045em;text-box:trim-both cap alphabetic">20+</p>
+        <p style="font-size:13px;line-height:20px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:14px 0 0;max-width:24ch">Years teaching Years 3&ndash;12, across Australia, London and Kent</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(34px,3.4vw,48px);line-height:56px;color:var(--color-accent);margin:0 0 0 -0.045em;text-box:trim-both cap alphabetic">2</p>
+        <p style="font-size:13px;line-height:20px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:14px 0 0;max-width:24ch">Curriculum authorities worked inside &mdash; ACARA and QCAA</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(34px,3.4vw,48px);line-height:56px;color:var(--color-accent);margin:0 0 0 -0.045em;text-box:trim-both cap alphabetic">P&ndash;12</p>
+        <p style="font-size:13px;line-height:20px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:14px 0 0;max-width:24ch">Curriculum, technologies and AI across every phase of schooling</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(24px,2.3vw,30px);line-height:28px;letter-spacing:-0.01em;color:var(--color-accent);margin:0 0 0 -0.03em">Open &amp;<br />Honest</p>
+        <p style="font-size:13px;line-height:20px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:14px 0 0;max-width:24ch">How the introductory meeting runs, before any scope or fee is discussed</p>
+      </div>
+    </div>
+  </section>
+  <hr style="height:2px;border:0;margin:0;background:var(--color-divider)" />
+  </sc-if>
+
+  <section id="why" style="padding:84px 0">
+    <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 28px">Why this work</span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px clamp(24px,5vw,88px);align-items:start">
+      <div>
+        <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3.2vw,40px);line-height:1.1;letter-spacing:-0.015em;margin:0;text-box:trim-both cap alphabetic">The gap is already being paid for.</h2>
+        <p style="font-size:16px;line-height:28px;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:28px 0 0;max-width:52ch">The difference between a well-resourced school and a stretched one is rarely commitment. It is time and money. Schools that can afford specialist capacity in-house buy it. Schools that cannot absorb the same work through teachers&rsquo; unpaid hours and stretched expertise.</p>
+        <p style="font-size:16px;line-height:28px;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:28px 0 0;max-width:52ch">We start from the position that your staff are already doing their best. The job is not to tell a school it is failing. It is to improve the tools and processes available, at a fraction of the time and cost it would take to build the same capability alone.</p>
+      </div>
+      <div>
+        <p style="font-size:13px;line-height:20px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0 0 20px">Costs a school already carries</p>
+        <ul style="list-style:none;margin:0;padding:0;border-top:2px solid var(--color-divider)">
+          <li style="font-size:16px;line-height:26px;padding:16px 0;border-bottom:2px solid var(--color-divider)">Training a new teacher through university</li>
+          <li style="font-size:16px;line-height:26px;padding:16px 0;border-bottom:2px solid var(--color-divider)">Onboarding that teacher into your systems and culture</li>
+          <li style="font-size:16px;line-height:26px;padding:16px 0;border-bottom:2px solid var(--color-divider)">Turnover: recruitment, lost institutional knowledge, disruption to students</li>
+          <li style="font-size:16px;line-height:26px;padding:16px 0;border-bottom:2px solid var(--color-divider)">The downstream cost sitting in your wellbeing and attrition data</li>
+        </ul>
+        <p style="font-size:16px;line-height:28px;margin:28px 0 0;max-width:44ch">Advisory support is not an added expense. It is a faster, lower-cost way to close a capability gap the school is already funding in other forms.</p>
+      </div>
     </div>
   </section>
 
-  <hr class="rule2" />
+  <hr style="height:2px;border:0;margin:0;background:var(--color-divider)" />
 
-  <section class="features" id="product">
-    <span class="kicker">What Takt does</span>
-    <div class="feature">
-      <p class="f-num">01</p>
-      <h2 class="f-title">The clockface timetable</h2>
-      <p class="f-copy">Every service leaves at the same minute past every hour, all day, forever. Your riders stop reading timetables and start setting watches — the schedule becomes something the town simply knows.</p>
+  <section id="services" style="padding:84px 0 70px">
+    <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 28px">What we do</span>
+    <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3.2vw,40px);line-height:1.1;letter-spacing:-0.015em;margin:0 0 56px;max-width:22ch;text-box:trim-both cap alphabetic">Three pillars. Engage one, or all three.</h2>
+
+    <div style="display:flex;flex-wrap:wrap;gap:28px clamp(24px,4vw,72px);align-items:baseline;padding:0 0 42px">
+      <p style="flex:0 0 auto;width:56px;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:15px;line-height:28px;font-feature-settings:'tnum' 1;margin:0">01</p>
+      <h3 style="flex:1 1 240px;max-width:340px;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;line-height:30px;letter-spacing:-0.01em;margin:0">Curriculum and assessment</h3>
+      <div style="flex:1 1 340px;max-width:56ch">
+        <p style="font-size:15.5px;line-height:28px;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:0">Whole-school plans, mapped units and the templates that make them repeatable, so planning becomes a system rather than a rediscovery each year.</p>
+        <ul style="list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px">
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Whole-school curriculum and assessment plans</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Curriculum mapping across subjects and phases</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Units of work, assessment tasks and culminating tasks</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Task-specific rubrics built from standards and elaborations</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Planning templates for Junior, Secondary and Senior phases</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Australian Curriculum guidance, including General Capabilities and Cross-Curriculum Priorities</li>
+        </ul>
+      </div>
     </div>
-    <div class="feature">
-      <p class="f-num">02</p>
-      <h2 class="f-title">Connections that hold</h2>
-      <p class="f-copy">Transfers are planned as promises: the branch line waits the full window, the mainline meets it to the second, and a missed connection is treated as what it is — an engineering defect.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:28px clamp(24px,4vw,72px);align-items:baseline;padding:42px 0;border-top:2px solid var(--color-divider)">
+      <p style="flex:0 0 auto;width:56px;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:15px;line-height:28px;font-feature-settings:'tnum' 1;margin:0">02</p>
+      <h3 style="flex:1 1 240px;max-width:340px;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;line-height:30px;letter-spacing:-0.01em;margin:0">Digital technologies and AI</h3>
+      <div style="flex:1 1 340px;max-width:56ch">
+        <p style="font-size:15.5px;line-height:28px;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:0">Policy, guardrails and staff capability for the area schools are least confident in and under the most pressure from. Written to be used, not filed.</p>
+        <ul style="list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px">
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Digital Technologies policy and school guidelines</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">AI strategy, policy and direction</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Assessment policy alignment and academic integrity guardrails</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">An AI assessment scale and an AI judgement tool</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Staff and student device management</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Professional learning in digital literacy, file and resource management</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">&ldquo;Using AI&rdquo; staff sessions: what it is, how to use it, and privacy, security and bias</li>
+        </ul>
+      </div>
     </div>
-    <div class="feature">
-      <p class="f-num">03</p>
-      <h2 class="f-title">Disruption, rerouted</h2>
-      <p class="f-copy">When the mountain sends snow, Takt already has the replacement plan published, the buses rolling, and the apology drafted in four languages. The 7:02 still leaves at 7:02 — from the next platform over.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:28px clamp(24px,4vw,72px);align-items:baseline;padding:42px 0 0;border-top:2px solid var(--color-divider)">
+      <p style="flex:0 0 auto;width:56px;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:15px;line-height:28px;font-feature-settings:'tnum' 1;margin:0">03</p>
+      <h3 style="flex:1 1 240px;max-width:340px;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;line-height:30px;letter-spacing:-0.01em;margin:0">Staff capability and sustainability</h3>
+      <div style="flex:1 1 340px;max-width:56ch">
+        <p style="font-size:15.5px;line-height:28px;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:0">The reason the first two pillars exist. Less administrative load, better onboarding, and processes the school keeps running without us.</p>
+        <ul style="list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px">
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Reducing administrative load and giving teachers back time</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Onboarding and early-career teacher support</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Retention and succession planning</li>
+          <li style="position:relative;padding-left:20px;font-size:15px;line-height:24px" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Connections between schools and educational bodies</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section class="split" id="network">
-    <div class="split-copy">
-      <span class="kicker">The network</span>
-      <h2 class="split-title">Printed in black and white</h2>
-      <p class="note">Takt treats operations like the page treats photographs: no color where none is needed. The network map prints in ink on near-white, every line legible, and red spent on exactly one thing — the service that needs your attention now.</p>
+  <hr style="height:2px;border:0;margin:0;background:var(--color-divider)" />
+
+  <sc-if value="{{ showAreas }}" hint-placeholder-val="{{ true }}">
+  <section style="padding:84px 0">
+    <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 28px">Where we look first</span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px clamp(24px,5vw,88px);align-items:start;margin-bottom:56px">
+      <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3.2vw,40px);line-height:1.1;letter-spacing:-0.015em;margin:0;max-width:20ch;text-box:trim-both cap alphabetic">We ask how the work actually happens.</h2>
+      <p style="font-size:16px;line-height:28px;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:0;max-width:52ch">Not whether a document exists, but how a unit really gets written, how long moderation really takes, and where the hours go that nobody has counted. Ten areas, worked through in conversation with leadership, middle leaders and teachers, with the difficult ones handled as a review of processes rather than of people.</p>
     </div>
-    <figure class="split-figure grayscale">
-      <image-slot id="photo-split" shape="rect" src="assets/photo.jpg" role="img" aria-label="Product photograph printed in black and white"></image-slot>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));column-gap:clamp(24px,4vw,64px)">
+      <div style="border-top:2px solid var(--color-divider);padding:20px 0"><p style="font-size:13px;line-height:14px;letter-spacing:0.08em;color:var(--color-accent-700);font-feature-settings:'tnum' 1;margin:0 0 12px">01</p><p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:17px;line-height:24px;margin:0">School direction and expectations</p></div>
+      <div style="border-top:2px solid var(--color-divider);padding:20px 0"><p style="font-size:13px;line-height:14px;letter-spacing:0.08em;color:var(--color-accent-700);font-feature-settings:'tnum' 1;margin:0 0 12px">02</p><p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:17px;line-height:24px;margin:0">Curriculum planning process</p></div>
+      <div style="border-top:2px solid var(--color-divider);padding:20px 0"><p style="font-size:13px;line-height:14px;letter-spacing:0.08em;color:var(--color-accent-700);font-feature-settings:'tnum' 1;margin:0 0 12px">03</p><p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:17px;line-height:24px;margin:0">Unit development and delivery readiness</p></div>
+      <div style="border-top:2px solid var(--color-divider);padding:20px 0"><p style="font-size:13px;line-height:14px;letter-spacing:0.08em;color:var(--color-accent-700);font-feature-settings:'tnum' 1;margin:0 0 12px">04</p><p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:17px;line-height:24px;margin:0">Assessment development</p></div>
+      <div style="border-top:2px solid var(--color-divider);padding:20px 0"><p style="font-size:13px;line-height:14px;letter-spacing:0.08em;color:var(--color-accent-700);font-feature-settings:'tnum' 1;margin:0 0 12px">05</p><p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:17px;line-height:24px;margin:0">Marking, moderation and reporting</p></div>
+      <div style="border-top:2px solid var(--color-divider);padding:20px 0"><p style="font-size:13px;line-height:14px;letter-spacing:0.08em;color:var(--color-accent-700);font-feature-settings:'tnum' 1;margin:0 0 12px">06</p><p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:17px;line-height:24px;margin:0">Meetings and collaboration</p></div>
+      <div style="border-top:2px solid var(--color-divider);padding:20px 0"><p style="font-size:13px;line-height:14px;letter-spacing:0.08em;color:var(--color-accent-700);font-feature-settings:'tnum' 1;margin:0 0 12px">07</p><p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:17px;line-height:24px;margin:0">Systems, platforms and resource management</p></div>
+      <div style="border-top:2px solid var(--color-divider);padding:20px 0"><p style="font-size:13px;line-height:14px;letter-spacing:0.08em;color:var(--color-accent-700);font-feature-settings:'tnum' 1;margin:0 0 12px">08</p><p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:17px;line-height:24px;margin:0">Workload and working hours</p></div>
+      <div style="border-top:2px solid var(--color-divider);padding:20px 0"><p style="font-size:13px;line-height:14px;letter-spacing:0.08em;color:var(--color-accent-700);font-feature-settings:'tnum' 1;margin:0 0 12px">09</p><p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:17px;line-height:24px;margin:0">Staff capability and confidence</p></div>
+      <div style="border-top:2px solid var(--color-divider);padding:20px 0"><p style="font-size:13px;line-height:14px;letter-spacing:0.08em;color:var(--color-accent-700);font-feature-settings:'tnum' 1;margin:0 0 12px">10</p><p style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:17px;line-height:24px;margin:0">AI and digital workload reduction</p></div>
+    </div>
+  </section>
+  <hr style="height:2px;border:0;margin:0;background:var(--color-divider)" />
+  </sc-if>
+
+  <section id="approach" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:42px clamp(24px,5vw,96px);align-items:center;padding:84px 0">
+    <div>
+      <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 28px">How we work</span>
+      <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3.2vw,36px);line-height:1.15;letter-spacing:-0.015em;margin:0;max-width:18ch;text-box:trim-both cap alphabetic">Fixed scope. Fixed fee. Something you can use.</h2>
+      <p style="font-size:15.5px;line-height:28px;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:28px 0 0;max-width:48ch">The introductory meeting is a conversation, not a pitch. If there is nothing worth doing, we will say so. Where there is, the scope is written down before anything starts, and we will tell you plainly which fixes you should handle internally rather than buy.</p>
+      <ol style="list-style:none;margin:28px 0 0;padding:0;counter-reset:step;border-top:2px solid var(--color-divider)">
+        <li style="display:flex;gap:16px;font-size:15.5px;line-height:26px;padding:14px 0;border-bottom:2px solid var(--color-divider)"><span style="flex:0 0 auto;width:28px;font-family:var(--font-heading);font-weight:var(--font-heading-weight);color:var(--color-accent-700);font-feature-settings:'tnum' 1">01</span><span>An introductory meeting to work out what would genuinely help</span></li>
+        <li style="display:flex;gap:16px;font-size:15.5px;line-height:26px;padding:14px 0;border-bottom:2px solid var(--color-divider)"><span style="flex:0 0 auto;width:28px;font-family:var(--font-heading);font-weight:var(--font-heading-weight);color:var(--color-accent-700);font-feature-settings:'tnum' 1">02</span><span>An engagement letter: services, deliverables, conditions and terms</span></li>
+        <li style="display:flex;gap:16px;font-size:15.5px;line-height:26px;padding:14px 0;border-bottom:2px solid var(--color-divider)"><span style="flex:0 0 auto;width:28px;font-family:var(--font-heading);font-weight:var(--font-heading-weight);color:var(--color-accent-700);font-feature-settings:'tnum' 1">03</span><span>The work, delivered inside windows that suit your calendar</span></li>
+        <li style="display:flex;gap:16px;font-size:15.5px;line-height:26px;padding:14px 0;border-bottom:2px solid var(--color-divider)"><span style="flex:0 0 auto;width:28px;font-family:var(--font-heading);font-weight:var(--font-heading-weight);color:var(--color-accent-700);font-feature-settings:'tnum' 1">04</span><span>A close-out check-in, and an honest answer about what comes next</span></li>
+      </ol>
+      <p style="font-size:15.5px;line-height:28px;margin:28px 0 0;max-width:48ch">Pricing is fixed scope, fixed fee, quoted after the introductory meeting. We will only ever offer a service that proactively benefits the school.</p>
+    </div>
+    <figure class="grayscale" style="margin:0">
+      <image-slot id="tec-approach-photo" shape="rect" placeholder="Wide photograph: teachers working together, staffroom or planning session" style="width:100%;aspect-ratio:951 / 665" role="img" aria-label="Photograph of teachers working together"></image-slot>
     </figure>
   </section>
 
-  <section class="quote">
-    <figure>
-      <!-- keep the leading “ — the blockquote's negative text-indent hangs it in the margin -->
-      <blockquote>“Twenty years dispatching and I have stopped checking the board. If Takt says the 7:02, it is the 7:02.”</blockquote>
-      <!-- keep the leading "— " — the figcaption's negative text-indent hangs it -->
-      <figcaption>— A. Keller, dispatcher, Olten</figcaption>
-    </figure>
+  <hr style="height:2px;border:0;margin:0;background:var(--color-divider)" />
+
+  <section id="about" style="padding:84px 0">
+    <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 28px">Who you work with</span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:42px clamp(24px,5vw,88px);align-items:start">
+      <div>
+        <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(32px,3.6vw,44px);line-height:1.1;letter-spacing:-0.015em;margin:0;text-box:trim-both cap alphabetic">Beth Claydon</h2>
+        <p style="font-size:13px;line-height:20px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:16px 0 0">Founder and lead adviser</p>
+        <p style="font-size:16px;line-height:28px;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:28px 0 0;max-width:52ch">Twenty years teaching Years 3 to 12 across Australia, London and Kent, fourteen of them at St Hilda&rsquo;s School, where she built and led St Hilda&rsquo;s@Home, an online learning program running well before remote learning was routine.</p>
+        <p style="font-size:16px;line-height:28px;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:28px 0 0;max-width:52ch">Plenty of consultants have been teachers. Some have worked at a curriculum authority. Very few have done both, and almost none inside the Technologies learning area: the area schools are least confident in, and the one under the most pressure from AI.</p>
+        <p style="font-size:16px;line-height:28px;margin:28px 0 0;max-width:52ch">In practice that means advice grounded in both ends of the same problem. What an eight-week unit actually takes to deliver on a Tuesday, and how ACARA intended an achievement standard to be read.</p>
+      </div>
+      <div>
+        <sc-if value="{{ showFounderPhoto }}" hint-placeholder-val="{{ true }}">
+        <figure class="grayscale" style="margin:0 0 42px">
+          <image-slot id="tec-founder-photo" shape="rect" placeholder="Portrait of Beth Claydon" style="width:100%;aspect-ratio:4 / 5" role="img" aria-label="Portrait of Beth Claydon"></image-slot>
+        </figure>
+        </sc-if>
+        <p style="font-size:13px;line-height:20px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0 0 20px">Selected experience</p>
+        <ul style="list-style:none;margin:0;padding:0;border-top:2px solid var(--color-divider)">
+          <li style="padding:16px 0;border-bottom:2px solid var(--color-divider)"><span style="display:block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:16px;line-height:24px">Curriculum Officer and mentor, Digital Technologies in Focus</span><span style="display:block;font-size:14px;line-height:22px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin-top:4px">ACARA &mdash; three years</span></li>
+          <li style="padding:16px 0;border-bottom:2px solid var(--color-divider)"><span style="display:block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:16px;line-height:24px">Senior Project Officer</span><span style="display:block;font-size:14px;line-height:22px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin-top:4px">Queensland Curriculum and Assessment Authority</span></li>
+          <li style="padding:16px 0;border-bottom:2px solid var(--color-divider)"><span style="display:block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:16px;line-height:24px">Deputy Director of Teaching and Learning</span><span style="display:block;font-size:14px;line-height:22px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin-top:4px">A.B. Paterson College</span></li>
+          <li style="padding:16px 0;border-bottom:2px solid var(--color-divider)"><span style="display:block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:16px;line-height:24px">Head of Digital Literacy and STEAM, Prep to 12</span><span style="display:block;font-size:14px;line-height:22px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin-top:4px">A.B. Paterson College</span></li>
+          <li style="padding:16px 0;border-bottom:2px solid var(--color-divider)"><span style="display:block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:16px;line-height:24px">Technologies and Innovation Specialist</span><span style="display:block;font-size:14px;line-height:22px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin-top:4px">Coomera Anglican College</span></li>
+          <li style="padding:16px 0;border-bottom:2px solid var(--color-divider)"><span style="display:block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:16px;line-height:24px">Head of St Hilda&rsquo;s@Home</span><span style="display:block;font-size:14px;line-height:22px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin-top:4px">St Hilda&rsquo;s School</span></li>
+          <li style="padding:16px 0;border-bottom:2px solid var(--color-divider)"><span style="display:block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:16px;line-height:24px">Apple Distinguished Educator</span></li>
+        </ul>
+      </div>
+    </div>
   </section>
+
+  <sc-if value="{{ showTestimonials }}" hint-placeholder-val="{{ true }}">
+  <hr style="height:2px;border:0;margin:0;background:var(--color-divider)" />
+  <section style="padding:84px 0">
+    <div style="display:flex;flex-wrap:wrap;gap:16px 28px;align-items:baseline;margin-bottom:42px">
+      <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0">In their words</span>
+      <span class="tag tag-outline">Awaiting written quotes</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 clamp(24px,4vw,72px)">
+      <figure style="margin:0;border-top:2px solid var(--color-divider);padding:28px 0">
+        <blockquote style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:30px;letter-spacing:-0.01em;margin:0;color:color-mix(in srgb, var(--color-text) 38%, transparent)">Quote to be added: what changed for the teaching staff.</blockquote>
+        <figcaption style="font-size:14px;line-height:22px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:28px 0 0">Head of Teaching and Learning, independent school</figcaption>
+      </figure>
+      <figure style="margin:0;border-top:2px solid var(--color-divider);padding:28px 0">
+        <blockquote style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:30px;letter-spacing:-0.01em;margin:0;color:color-mix(in srgb, var(--color-text) 38%, transparent)">Quote to be added: the hours a single process gave back.</blockquote>
+        <figcaption style="font-size:14px;line-height:22px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:28px 0 0">Middle leader, Anglican school</figcaption>
+      </figure>
+      <figure style="margin:0;border-top:2px solid var(--color-divider);padding:28px 0">
+        <blockquote style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:30px;letter-spacing:-0.01em;margin:0;color:color-mix(in srgb, var(--color-text) 38%, transparent)">Quote to be added: how the AI position was settled.</blockquote>
+        <figcaption style="font-size:14px;line-height:22px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:28px 0 0">Principal, Catholic school</figcaption>
+      </figure>
+    </div>
+  </section>
+  </sc-if>
 
 </div>
 
-<section class="close" id="start">
-  <div class="wrap">
-    <h3><span class="line">Set your watch by it.</span></h3>
-    <div class="row">
-      <button type="button" class="btn btn-ghost">Start free — first month on us</button>
+<section style="background:var(--color-accent);color:var(--color-bg)">
+  <div style="max-width:1200px;margin:0 auto;padding:84px clamp(20px,5vw,72px)">
+    <svg width="66" height="55" viewBox="0 0 142 118" fill="var(--color-bg)" aria-hidden="true" style="display:block;margin:0 0 42px"><path d="M48 30 L4 42 L8.5 47 Q26 47 47.5 47.5 C47 55 48 71 52 80 C56 89 64 95 74 95 C86 95 96 89 102 79 L130 95 L138 83.5 L112 66.5 C106 58 99 52 94 45 C92 41 93.5 38 93 32 C92 22 86 14 74 13 C62 12 52 18 48 30 Z"/><circle cx="60" cy="32" r="4" fill="var(--color-accent)"/><rect x="67" y="93" width="3.5" height="15"/><rect x="80" y="93" width="3.5" height="15"/><rect x="28" y="108" width="108" height="3.5"/></svg>
+    <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(32px,4.2vw,56px);line-height:1.06;letter-spacing:-0.015em;margin:0 0 0 -0.058em;text-box:trim-both cap alphabetic">
+      <span style="display:block">Happy Teachers = Happy Schools.</span>
+      <span style="display:block">Start with a conversation.</span>
+    </h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:42px">
+      <a class="btn btn-ghost" href="mailto:hello@thrive-education-consulting.com.au" style="color:var(--color-bg);border-color:var(--color-bg)">hello@thrive-education-consulting.com.au</a>
     </div>
   </div>
 </section>
 
-<div class="wrap">
-  <footer>Built from this project’s theme.json — see readme.md.</footer>
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+  <footer style="display:flex;flex-wrap:wrap;gap:8px 42px;padding:56px 0;font-size:13px;line-height:28px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">
+    <span>Thrive Education Consulting</span>
+    <span>Independent, Catholic and Anglican schools &mdash; South-East Queensland</span>
+    <span><a href="mailto:hello@thrive-education-consulting.com.au">hello@thrive-education-consulting.com.au</a></span>
+  </footer>
 </div>
-<script src="image-slot.js"></script>
-<script>
-// Review aid: baseline-grid overlay — add ?baselines to the URL, or press B to toggle.
-(() => {
-  if (new URLSearchParams(location.search).has('baselines')) document.body.setAttribute('data-baselines', '');
-  addEventListener('keydown', (e) => {
-    const t = e.target;
-    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
-    if ((e.key === 'b' || e.key === 'B') && !e.metaKey && !e.ctrlKey && !e.altKey) document.body.toggleAttribute('data-baselines');
-  });
-})();
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showCredentialFigures&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;},&quot;showAreas&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;},&quot;showTestimonials&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;},&quot;showFounderPhoto&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showCredentialFigures: this.props.showCredentialFigures ?? true,
+      showAreas: this.props.showAreas ?? true,
+      showTestimonials: this.props.showTestimonials ?? true,
+      showFounderPhoto: this.props.showFounderPhoto ?? true
+    };
+  }
+}
 </script>
 </body>
 </html>
