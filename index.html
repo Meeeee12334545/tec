@@ -13,16 +13,16 @@
 <link rel="stylesheet" href="ds/styles.css" />
 <script src="ds/ds-bundle.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Archivo:wght@300;400;500;600&display=swap" />
 <style>
 :root {
   --color-bg: #ffffff;
   --color-surface: #ffffff;
-  --color-text: #26302a;
-  --color-divider: #c7d0c8;
+  --color-text: #1c2620;
+  --color-divider: #b6c3b8;
   --color-neutral-100: #faf9f6; --color-neutral-200: #ecebe4; --color-neutral-300: #dcdad2;
-  --color-neutral-400: #c2c0b6; --color-neutral-500: #a2a098; --color-neutral-600: #807e76;
-  --color-neutral-700: #5f5d56; --color-neutral-800: #3c3a35; --color-neutral-900: #231f1d;
+  --color-neutral-400: #bcc2b9; --color-neutral-500: #8e938b; --color-neutral-600: #6c716a;
+  --color-neutral-700: #4e544c; --color-neutral-800: #2f3630; --color-neutral-900: #1c2620;
   --color-accent: #607567;
   --color-accent-100: #eef1ee; --color-accent-200: #dce2dd; --color-accent-300: #bcc7bf;
   --color-accent-400: #8e9e93; --color-accent-500: #607567; --color-accent-600: #526355;
@@ -31,20 +31,23 @@
   --color-accent-2-100: #eff7ef; --color-accent-2-200: #dceedd; --color-accent-2-300: #bcdebe;
   --color-accent-2-400: #9bcd9e; --color-accent-2-500: #7abd7e; --color-accent-2-600: #66a26a;
   --color-accent-2-700: #4f7f52; --color-accent-2-800: #3a5c3c; --color-accent-2-900: #253b27;
-  --red: #b8554a; --red-ink: #93413a;
+  --red: #b8554a; --red-ink: #9c4034;
   --sand: #e0c9a6; --wattle: #d2a35a; --warm: #ecebe4;
   --font-heading: "Jost", system-ui, sans-serif;
   --font-heading-weight: 500;
-  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --font-body: "Helvetica Neue", "Archivo", Helvetica, Arial, sans-serif;
   --radius-sm: 2px; --radius-md: 2px; --radius-lg: 3px;
   --rule: 2px solid var(--color-divider);
   --rule-ink: 2px solid var(--color-accent);
 }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; font-family: var(--font-body); font-size: 17px; line-height: 1.72; font-weight: 400; text-wrap: pretty; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-a { color: var(--color-accent-700); text-underline-offset: 3px; }
+body { margin: 0; font-family: var(--font-body); font-size: 17px; line-height: 1.74; font-weight: 300; text-wrap: pretty; }
+a { color: var(--color-accent-700); text-underline-offset: 3px; transition: color .16s ease, background-color .16s ease, border-color .16s ease; }
 a:hover { color: var(--color-accent); }
+.btn { transition: background-color .16s ease, color .16s ease, border-color .16s ease; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+img { max-width: 100%; }
 ::selection { background: var(--color-accent-200); }
 </style>
 </helmet>
@@ -68,20 +71,28 @@ a:hover { color: var(--color-accent); }
 <div id="top" style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
 
   <section style="padding:clamp(64px,9vw,112px) 0 clamp(48px,6vw,80px)">
-    <p style="font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.2em;text-transform:uppercase;color:var(--red-ink);margin:0 0 clamp(28px,4vw,44px)">Supporting educators and schools to thrive</p>
-    <h1 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(40px,6.6vw,86px);line-height:1.02;letter-spacing:-0.022em;margin:0">
-      <span style="display:block">Give your teachers</span>
-      <span style="display:block">their time back.</span>
-      <span style="display:block;color:var(--color-accent)">The rest follows.</span>
+    <p style="font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.2em;text-transform:uppercase;color:var(--red-ink);margin:0 0 clamp(28px,4vw,44px)">Supporting Educators &amp; Schools To Thrive</p>
+    <h1 style="font-family:var(--font-heading);font-weight:600;font-size:clamp(42px,6.8vw,92px);line-height:1.01;letter-spacing:-0.028em;margin:0">
+      <span style="display:block">Give Your Teachers</span>
+      <span style="display:block">Their Time Back.</span>
+      <span style="display:block;color:var(--color-accent)">The Rest Follows.</span>
     </h1>
     <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,6vw,88px);margin-top:clamp(40px,5vw,64px);padding-top:32px;border-top:var(--rule)">
       <p style="flex:0 0 auto;width:160px;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent);margin:0">The practice</p>
-      <div style="flex:1 1 460px;max-width:62ch">
+      <div style="flex:1 1 400px;max-width:56ch">
         <p style="margin:0;color:var(--color-neutral-800)">Thrive Education Consulting works with independent, Catholic and Anglican schools in three areas: curriculum and assessment, digital technologies and AI, and the administrative work teachers absorb in their own time. We advise rather than direct. Our aim is to strengthen what your staff already do, and to leave behind plans, templates and processes the school can put to use straight away.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:36px">
           <a class="btn btn-primary" href="mailto:hello@thrive-education-consulting.com.au" style="color:#fff;font-family:var(--font-heading);font-weight:500;letter-spacing:0.02em;padding:13px 22px">Book an introductory meeting</a>
           <a class="btn btn-secondary" href="#services" style="font-family:var(--font-heading);font-weight:500;letter-spacing:0.02em;padding:13px 22px;border-color:var(--color-accent-300)">See what we do</a>
         </div>
+      </div>
+      <div style="flex:1 1 230px;max-width:320px">
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-neutral-600);margin:0 0 10px">Areas Of Work</p>
+        <ul style="list-style:none;margin:0;padding:0;border-bottom:1px solid var(--color-accent-200)">
+          <li style="border-top:1px solid var(--color-accent-200)"><a href="#services" style="display:flex;gap:14px;align-items:baseline;padding:11px 0;text-decoration:none;color:var(--color-neutral-800)" style-hover="color:var(--color-accent)"><span style="flex:0 0 auto;font-family:var(--font-heading);font-weight:500;font-size:11px;letter-spacing:0.12em;color:var(--color-accent-400)">01</span><span style="font-family:var(--font-heading);font-weight:500;font-size:15px;line-height:1.35;letter-spacing:0.01em">Curriculum &amp; Assessment</span></a></li>
+          <li style="border-top:1px solid var(--color-accent-200)"><a href="#services" style="display:flex;gap:14px;align-items:baseline;padding:11px 0;text-decoration:none;color:var(--color-neutral-800)" style-hover="color:var(--color-accent)"><span style="flex:0 0 auto;font-family:var(--font-heading);font-weight:500;font-size:11px;letter-spacing:0.12em;color:var(--color-accent-400)">02</span><span style="font-family:var(--font-heading);font-weight:500;font-size:15px;line-height:1.35;letter-spacing:0.01em">Digital Technologies &amp; AI</span></a></li>
+          <li style="border-top:1px solid var(--color-accent-200)"><a href="#services" style="display:flex;gap:14px;align-items:baseline;padding:11px 0;text-decoration:none;color:var(--color-neutral-800)" style-hover="color:var(--color-accent)"><span style="flex:0 0 auto;font-family:var(--font-heading);font-weight:500;font-size:11px;letter-spacing:0.12em;color:var(--color-accent-400)">03</span><span style="font-family:var(--font-heading);font-weight:500;font-size:15px;line-height:1.35;letter-spacing:0.01em">Staff Capability &amp; Sustainability</span></a></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -92,7 +103,7 @@ a:hover { color: var(--color-accent); }
   <div style="max-width:1240px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:36px clamp(32px,6vw,88px);align-items:center">
     <img src="assets/thrive-mark.png" alt="Thrive Education Consulting" style="display:block;flex:0 0 auto;width:136px;height:auto" />
     <div style="flex:1 1 340px">
-      <p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(17px,2vw,23px);line-height:1.3;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-accent);margin:0">See clearly. Think deeply. Move forward.</p>
+      <p style="font-family:var(--font-heading);font-weight:600;font-size:clamp(17px,2vw,23px);line-height:1.3;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-accent-700);margin:0">See clearly. Think deeply. Move forward.</p>
     </div>
     <p style="flex:1 1 320px;max-width:46ch;font-size:16px;line-height:1.68;color:var(--color-neutral-800);margin:0">Practical, research-informed consultancy that builds capability, clarity and confidence for learning in a changing world.</p>
   </div>
@@ -103,23 +114,23 @@ a:hover { color: var(--color-accent); }
   <section aria-label="What changes" style="padding:clamp(64px,8vw,104px) 0">
     <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,6vw,88px);margin-bottom:clamp(40px,5vw,64px)">
       <p style="flex:0 0 auto;width:160px;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent);margin:0">What changes</p>
-      <h2 style="flex:1 1 460px;font-family:var(--font-heading);font-weight:500;font-size:clamp(28px,3.2vw,40px);line-height:1.08;letter-spacing:-0.018em;margin:0;max-width:26ch">Four things your school gets back.</h2>
+      <h2 style="flex:1 1 460px;font-family:var(--font-heading);font-weight:600;font-size:clamp(28px,3.2vw,40px);line-height:1.08;letter-spacing:-0.018em;margin:0;max-width:26ch">Four Things Your School Gets Back.</h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:40px clamp(28px,4vw,56px)">
-      <div style="border-top:3px solid var(--sand);padding-top:22px">
-        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.24;letter-spacing:-0.01em;margin:0">Hours back into teaching</h3>
+      <div style="border-top:3px solid var(--wattle);padding-top:22px">
+        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.24;letter-spacing:-0.01em;margin:0">Hours Back Into Teaching</h3>
         <p style="font-size:16px;line-height:1.66;color:var(--color-neutral-800);margin:12px 0 0">Planning, moderation and reporting stop being rebuilt from scratch each year. The time returns to your staff.</p>
       </div>
-      <div style="border-top:3px solid var(--sand);padding-top:22px">
-        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.24;letter-spacing:-0.01em;margin:0">A clear position on AI</h3>
+      <div style="border-top:3px solid var(--wattle);padding-top:22px">
+        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.24;letter-spacing:-0.01em;margin:0">A Clear Position On AI</h3>
         <p style="font-size:16px;line-height:1.66;color:var(--color-neutral-800);margin:12px 0 0">Policy, guardrails and staff confidence in the area schools are least prepared for and under the most pressure from.</p>
       </div>
-      <div style="border-top:3px solid var(--sand);padding-top:22px">
-        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.24;letter-spacing:-0.01em;margin:0">Curriculum that holds up</h3>
+      <div style="border-top:3px solid var(--wattle);padding-top:22px">
+        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.24;letter-spacing:-0.01em;margin:0">Curriculum That Holds Up</h3>
         <p style="font-size:16px;line-height:1.66;color:var(--color-neutral-800);margin:12px 0 0">Whole school plans, mapped units and rubrics built from the standards, ready to teach rather than finished the weekend before.</p>
       </div>
-      <div style="border-top:3px solid var(--sand);padding-top:22px">
-        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.24;letter-spacing:-0.01em;margin:0">Staff who want to stay</h3>
+      <div style="border-top:3px solid var(--wattle);padding-top:22px">
+        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.24;letter-spacing:-0.01em;margin:0">Staff Who Want To Stay</h3>
         <p style="font-size:16px;line-height:1.66;color:var(--color-neutral-800);margin:12px 0 0">Lower administrative load, better onboarding, and capability that remains with your people after we leave.</p>
       </div>
     </div>
@@ -129,19 +140,19 @@ a:hover { color: var(--color-accent); }
   <section aria-label="Background" style="padding:clamp(56px,6vw,80px) 0;border-top:var(--rule)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px clamp(32px,5vw,72px)">
       <div>
-        <p style="font-family:var(--font-heading);font-weight:400;font-size:clamp(40px,3.8vw,56px);line-height:1;letter-spacing:-0.02em;color:var(--color-accent);margin:0">20+</p>
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(40px,3.8vw,56px);line-height:1;letter-spacing:-0.02em;color:var(--color-accent);margin:0">20+</p>
         <p style="font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:17px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-neutral-700);margin:22px 0 0;max-width:22ch">Years teaching Years 3 to 12, across Australia, London and Kent</p>
       </div>
       <div>
-        <p style="font-family:var(--font-heading);font-weight:400;font-size:clamp(40px,3.8vw,56px);line-height:1;letter-spacing:-0.02em;color:var(--color-accent);margin:0">2</p>
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(40px,3.8vw,56px);line-height:1;letter-spacing:-0.02em;color:var(--color-accent);margin:0">2</p>
         <p style="font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:17px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-neutral-700);margin:22px 0 0;max-width:22ch">Curriculum authorities worked inside &mdash; ACARA and QCAA</p>
       </div>
       <div>
-        <p style="font-family:var(--font-heading);font-weight:400;font-size:clamp(30px,2.6vw,38px);line-height:1;letter-spacing:-0.015em;color:var(--color-accent);margin:0">Prep to 12</p>
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(30px,2.6vw,38px);line-height:1;letter-spacing:-0.015em;color:var(--color-accent);margin:0">Prep to 12</p>
         <p style="font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:17px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-neutral-700);margin:22px 0 0;max-width:22ch">Curriculum, technologies and AI across every phase of schooling</p>
       </div>
       <div>
-        <p style="font-family:var(--font-heading);font-weight:400;font-size:clamp(26px,2.3vw,34px);line-height:1.08;letter-spacing:-0.015em;color:var(--color-accent);margin:0">Open &amp;<br />Honest</p>
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(26px,2.3vw,34px);line-height:1.08;letter-spacing:-0.015em;color:var(--color-accent);margin:0">Open &amp;<br />Honest</p>
         <p style="font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:17px;letter-spacing:0.13em;text-transform:uppercase;color:var(--color-neutral-700);margin:22px 0 0;max-width:22ch">How the introductory meeting runs, before any scope or fee is discussed</p>
       </div>
     </div>
@@ -152,7 +163,7 @@ a:hover { color: var(--color-accent); }
     <p style="flex:0 0 auto;width:160px;margin:0"><span style="display:block;font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:16px;letter-spacing:0.14em;color:var(--color-neutral-500);margin-bottom:8px">01</span><span style="display:block;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Why this work</span></p>
     <div style="flex:1 1 460px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px clamp(32px,4vw,64px);align-items:start">
       <div>
-        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(28px,3.2vw,42px);line-height:1.06;letter-spacing:-0.018em;margin:0">The gap is already being paid for.</h2>
+        <h2 style="font-family:var(--font-heading);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.06;letter-spacing:-0.018em;margin:0">The Gap Is Already Being Paid For.</h2>
         <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-800);margin:28px 0 0;max-width:50ch">The difference between a well resourced school and a stretched one is rarely commitment. It is time and money. Schools that can afford specialist capacity on staff buy it. Schools that cannot absorb the same work through teachers&rsquo; unpaid hours and stretched expertise.</p>
         <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-800);margin:20px 0 0;max-width:50ch">We start from the position that your staff are already doing their best. The job is not to tell a school it is failing. It is to improve the tools and processes available, at a fraction of the time and cost it would take to build the same capability alone.</p>
       </div>
@@ -173,14 +184,14 @@ a:hover { color: var(--color-accent); }
     <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,6vw,88px);margin-bottom:56px">
       <p style="flex:0 0 auto;width:160px;margin:0"><span style="display:block;font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:16px;letter-spacing:0.14em;color:var(--color-neutral-500);margin-bottom:8px">02</span><span style="display:block;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">The economics</span></p>
       <div style="flex:1 1 460px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px clamp(32px,4vw,64px);align-items:start">
-        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(28px,3.2vw,42px);line-height:1.06;letter-spacing:-0.018em;margin:0;max-width:20ch">The saving is larger than the fee.</h2>
-        <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-800);margin:0;max-width:50ch">Every engagement is scoped so that the hours and costs it removes exceed what it costs to run. That test is applied before you commit, not after. Where the numbers do not clear it, we say so and reduce the scope or decline the work.</p>
+        <h2 style="font-family:var(--font-heading);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.06;letter-spacing:-0.018em;margin:0;max-width:20ch">The Saving Is Larger Than The Fee.</h2>
+        <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-800);margin:0;max-width:50ch">Every engagement is scoped so that the hours and costs it removes exceed what it costs to run, in the term it is delivered and in every year that follows. That test is applied before you commit, not after. Where the numbers do not clear it, we say so and reduce the scope or decline the work.</p>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px clamp(32px,5vw,72px)">
       <div style="border-top:var(--rule);padding-top:24px">
         <p style="font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-neutral-600);margin:0 0 6px">What the school pays today</p>
-        <p style="font-family:var(--font-heading);font-weight:500;font-size:21px;line-height:1.25;letter-spacing:-0.01em;margin:0 0 24px">Absorbed, recurring, uncosted</p>
+        <p style="font-family:var(--font-heading);font-weight:600;font-size:21px;line-height:1.25;letter-spacing:-0.012em;margin:0 0 24px">Absorbed, Recurring, Uncosted</p>
         <ul style="list-style:none;margin:0;padding:0;display:grid;gap:12px">
           <li style="position:relative;padding-left:20px;font-size:16px;line-height:1.55;color:var(--color-neutral-800)" style-before="content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--color-neutral-400)">Teacher hours spent planning, moderating and reporting outside load</li>
           <li style="position:relative;padding-left:20px;font-size:16px;line-height:1.55;color:var(--color-neutral-800)" style-before="content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--color-neutral-400)">Leadership time spent building capability the school does not yet hold</li>
@@ -191,7 +202,7 @@ a:hover { color: var(--color-accent); }
       </div>
       <div style="border-top:var(--rule-ink);padding-top:24px">
         <p style="font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-accent);margin:0 0 6px">What an engagement costs</p>
-        <p style="font-family:var(--font-heading);font-weight:500;font-size:21px;line-height:1.25;letter-spacing:-0.01em;margin:0 0 24px">Fixed, bounded and final</p>
+        <p style="font-family:var(--font-heading);font-weight:600;font-size:21px;line-height:1.25;letter-spacing:-0.012em;margin:0 0 24px">Fixed, Bounded &amp; Final</p>
         <ul style="list-style:none;margin:0;padding:0;display:grid;gap:12px">
           <li style="position:relative;padding-left:20px;font-size:16px;line-height:1.55;color:var(--color-neutral-800)" style-before="content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--color-accent)">One fee, agreed in writing before any work begins</li>
           <li style="position:relative;padding-left:20px;font-size:16px;line-height:1.55;color:var(--color-neutral-800)" style-before="content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--color-accent)">No salary, no superannuation, no recruitment, no ongoing commitment</li>
@@ -201,18 +212,32 @@ a:hover { color: var(--color-accent); }
         </ul>
       </div>
     </div>
-    <p style="font-family:var(--font-heading);font-weight:400;font-size:clamp(20px,2.1vw,27px);line-height:1.34;letter-spacing:-0.01em;color:var(--color-accent-800);margin:clamp(40px,5vw,56px) 0 0;max-width:46ch">We only propose work that returns more than it costs. If an engagement cannot pay for itself, we will tell you before you commit.</p>
+    <div style="margin-top:clamp(44px,5vw,60px);background:var(--color-accent-100);padding:clamp(28px,4vw,48px)">
+      <p style="font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 clamp(28px,3vw,36px)">The Return</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:36px clamp(32px,5vw,72px)">
+        <div style="border-top:2px solid var(--color-accent);padding-top:22px">
+          <h3 style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.2;letter-spacing:-0.012em;margin:0">In The First Term</h3>
+          <p style="font-size:16px;line-height:1.66;color:var(--color-neutral-800);margin:14px 0 0">Nobody starts a unit from a blank document. Nobody rewrites a rubric that already exists somewhere. Nobody loses an evening looking for the file that was on the shared drive last year. Those hours come back inside the same term, to every teacher the change touches.</p>
+        </div>
+        <div style="border-top:2px solid var(--color-accent);padding-top:22px">
+          <h3 style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.2;letter-spacing:-0.012em;margin:0">Every Year After</h3>
+          <p style="font-size:16px;line-height:1.66;color:var(--color-neutral-800);margin:14px 0 0">The plans, templates and processes stay in the school. Term 1 next year opens on a finished document rather than an empty one, and when a teacher moves on, what they knew stays behind. The fee is paid once. The hours come back every year.</p>
+        </div>
+      </div>
+      <p style="font-size:16px;line-height:1.7;color:var(--color-accent-800);margin:clamp(28px,3vw,36px) 0 0;max-width:62ch">Weigh the fee against one year of the hours it gives back and it is the smaller figure. Weigh it against five and there is not much left to weigh.</p>
+    </div>
+    <p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(20px,2.1vw,27px);line-height:1.34;letter-spacing:-0.01em;color:var(--color-accent-800);margin:clamp(40px,5vw,56px) 0 0;max-width:48ch">We only propose work that pays for itself inside the first term and keeps paying every year after. If an engagement cannot clear that bar, we will say so before you commit.</p>
   </section>
 
   <section id="services" style="scroll-margin-top:104px;padding:clamp(64px,8vw,104px) 0;border-top:var(--rule)">
     <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,6vw,88px);margin-bottom:clamp(48px,6vw,72px)">
       <p style="flex:0 0 auto;width:160px;margin:0"><span style="display:block;font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:16px;letter-spacing:0.14em;color:var(--color-neutral-500);margin-bottom:8px">03</span><span style="display:block;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">What we do</span></p>
-      <h2 style="flex:1 1 460px;font-family:var(--font-heading);font-weight:500;font-size:clamp(28px,3.2vw,42px);line-height:1.06;letter-spacing:-0.018em;margin:0;max-width:24ch">Three pillars. Engage one, or all three.</h2>
+      <h2 style="flex:1 1 460px;font-family:var(--font-heading);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.06;letter-spacing:-0.018em;margin:0;max-width:24ch">Three Pillars. Engage One, Or All Three.</h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(40px,5vw,56px) clamp(32px,5vw,72px)">
-      <div style="display:flex;flex-direction:column">
-        <p style="font-family:var(--font-heading);font-weight:400;font-size:40px;line-height:1;letter-spacing:-0.02em;color:var(--color-accent-300);margin:0 0 18px">01</p>
-        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:1.2;letter-spacing:-0.012em;margin:0">Curriculum and assessment</h3>
+      <div style="display:flex;flex-direction:column;border-top:3px solid var(--color-accent);padding-top:26px">
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;color:var(--color-accent-400);margin:0 0 16px">01</p>
+        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:1.2;letter-spacing:-0.012em;margin:0">Curriculum &amp; Assessment</h3>
         <p style="font-size:16px;line-height:1.62;color:var(--color-neutral-800);margin:16px 0 26px">Whole school plans, mapped units and the templates that make them repeatable, so planning becomes a system rather than a rediscovery each year.</p>
         <ul style="list-style:none;margin:0;padding:0;display:grid;gap:11px">
           <li style="position:relative;padding-left:20px;font-size:15px;line-height:1.5;color:var(--color-neutral-800)" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Whole school curriculum and assessment plans</li>
@@ -224,9 +249,9 @@ a:hover { color: var(--color-accent); }
         </ul>
         <p style="margin:26px 0 0;padding-top:18px;border-top:1px solid var(--color-accent-200);font-size:15px;line-height:1.55;color:var(--color-accent-700)"><span style="font-family:var(--font-heading);font-weight:600">You keep</span> a documented plan and a template set your faculties can run again next year.</p>
       </div>
-      <div style="display:flex;flex-direction:column">
-        <p style="font-family:var(--font-heading);font-weight:400;font-size:40px;line-height:1;letter-spacing:-0.02em;color:var(--color-accent-300);margin:0 0 18px">02</p>
-        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:1.2;letter-spacing:-0.012em;margin:0">Digital technologies and AI</h3>
+      <div style="display:flex;flex-direction:column;border-top:3px solid var(--color-accent);padding-top:26px">
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;color:var(--color-accent-400);margin:0 0 16px">02</p>
+        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:1.2;letter-spacing:-0.012em;margin:0">Digital Technologies &amp; AI</h3>
         <p style="font-size:16px;line-height:1.62;color:var(--color-neutral-800);margin:16px 0 26px">Policy, guardrails and staff capability for the area schools are least confident in and under the most pressure from. Written to be used, not filed.</p>
         <ul style="list-style:none;margin:0;padding:0;display:grid;gap:11px">
           <li style="position:relative;padding-left:20px;font-size:15px;line-height:1.5;color:var(--color-neutral-800)" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Digital Technologies policy and school guidelines</li>
@@ -239,9 +264,9 @@ a:hover { color: var(--color-accent); }
         </ul>
         <p style="margin:26px 0 0;padding-top:18px;border-top:1px solid var(--color-accent-200);font-size:15px;line-height:1.55;color:var(--color-accent-700)"><span style="font-family:var(--font-heading);font-weight:600">You keep</span> a position on AI your staff understand, and guardrails that hold up under scrutiny.</p>
       </div>
-      <div style="display:flex;flex-direction:column">
-        <p style="font-family:var(--font-heading);font-weight:400;font-size:40px;line-height:1;letter-spacing:-0.02em;color:var(--color-accent-300);margin:0 0 18px">03</p>
-        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:1.2;letter-spacing:-0.012em;margin:0">Staff capability and sustainability</h3>
+      <div style="display:flex;flex-direction:column;border-top:3px solid var(--color-accent);padding-top:26px">
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;color:var(--color-accent-400);margin:0 0 16px">03</p>
+        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:1.2;letter-spacing:-0.012em;margin:0">Staff Capability &amp; Sustainability</h3>
         <p style="font-size:16px;line-height:1.62;color:var(--color-neutral-800);margin:16px 0 26px">The reason the first two pillars exist. Less administrative load, better onboarding, and processes the school keeps running without us.</p>
         <ul style="list-style:none;margin:0;padding:0;display:grid;gap:11px">
           <li style="position:relative;padding-left:20px;font-size:15px;line-height:1.5;color:var(--color-neutral-800)" style-before="content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--color-accent)">Reducing administrative load and giving teachers back time</li>
@@ -260,67 +285,67 @@ a:hover { color: var(--color-accent); }
   <section style="background:var(--warm)">
     <div style="max-width:1240px;margin:0 auto;padding:clamp(72px,9vw,112px) clamp(20px,5vw,64px)">
       <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,6vw,88px);margin-bottom:clamp(48px,7vw,80px)">
-        <p style="flex:0 0 auto;width:160px;margin:0"><span style="display:block;font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:16px;letter-spacing:0.14em;color:var(--color-neutral-600);margin-bottom:8px">04</span><span style="display:block;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Where we look first</span></p>
+        <p style="flex:0 0 auto;width:160px;margin:0"><span style="display:block;font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:16px;letter-spacing:0.14em;color:var(--color-neutral-600);margin-bottom:8px">04</span><span style="display:block;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent-700)">Where we look first</span></p>
         <div style="flex:1 1 460px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px clamp(32px,4vw,64px);align-items:start">
-          <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(30px,3.6vw,46px);line-height:1.04;letter-spacing:-0.02em;margin:0;max-width:18ch">We ask how the work actually happens.</h2>
+          <h2 style="font-family:var(--font-heading);font-weight:600;font-size:clamp(30px,3.6vw,46px);line-height:1.04;letter-spacing:-0.02em;margin:0;max-width:18ch">We Ask How The Work Actually Happens.</h2>
           <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-800);margin:0;max-width:50ch">Not whether a document exists, but how a unit really gets written, how long moderation really takes, and where the hours go that nobody has counted. Ten areas, worked through in conversation with leadership, middle leaders and teachers, with the difficult ones handled as a review of processes rather than of people.</p>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:clamp(32px,4vw,44px) clamp(32px,5vw,72px)">
         <div>
           <p style="font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.14em;color:var(--red-ink);margin:0 0 12px">01</p>
-          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">School direction and expectations</p>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">School Direction &amp; Expectations</p>
           <p style="font-size:15px;line-height:1.55;color:var(--color-neutral-800);margin:10px 0 0">Where leadership is heading, and what staff understand that to mean in practice.</p>
         </div>
         <div>
           <p style="font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.14em;color:var(--red-ink);margin:0 0 12px">02</p>
-          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Curriculum planning process</p>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Curriculum Planning Process</p>
           <p style="font-size:15px;line-height:1.55;color:var(--color-neutral-800);margin:10px 0 0">Who writes a unit, from what starting point, and how much is rebuilt from scratch each year.</p>
         </div>
         <div>
           <p style="font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.14em;color:var(--red-ink);margin:0 0 12px">03</p>
-          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Unit development and delivery readiness</p>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Unit Development &amp; Delivery Readiness</p>
           <p style="font-size:15px;line-height:1.55;color:var(--color-neutral-800);margin:10px 0 0">Whether a unit arrives ready to teach, or is finished the weekend before it runs.</p>
         </div>
         <div>
           <p style="font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.14em;color:var(--red-ink);margin:0 0 12px">04</p>
-          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Assessment development</p>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Assessment Development</p>
           <p style="font-size:15px;line-height:1.55;color:var(--color-neutral-800);margin:10px 0 0">How tasks and rubrics are written, checked against the standards, and reused across a faculty.</p>
         </div>
         <div>
           <p style="font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.14em;color:var(--red-ink);margin:0 0 12px">05</p>
-          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Marking, moderation and reporting</p>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Marking, Moderation &amp; Reporting</p>
           <p style="font-size:15px;line-height:1.55;color:var(--color-neutral-800);margin:10px 0 0">The real hours inside a marking period, and the points where moderation stalls.</p>
         </div>
         <div>
           <p style="font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.14em;color:var(--red-ink);margin:0 0 12px">06</p>
-          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Meetings and collaboration</p>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Meetings &amp; Collaboration</p>
           <p style="font-size:15px;line-height:1.55;color:var(--color-neutral-800);margin:10px 0 0">What your meetings decide, what they only report, and what could have been a document.</p>
         </div>
         <div>
           <p style="font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.14em;color:var(--red-ink);margin:0 0 12px">07</p>
-          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Systems, platforms and resource management</p>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Systems, Platforms &amp; Resource Management</p>
           <p style="font-size:15px;line-height:1.55;color:var(--color-neutral-800);margin:10px 0 0">How many places a teacher looks to find one file, and who keeps those places current.</p>
         </div>
         <div>
           <p style="font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.14em;color:var(--red-ink);margin:0 0 12px">08</p>
-          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Workload and working hours</p>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Workload &amp; Working Hours</p>
           <p style="font-size:15px;line-height:1.55;color:var(--color-neutral-800);margin:10px 0 0">When the work actually happens, and which parts of it sit outside paid load.</p>
         </div>
         <div>
           <p style="font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.14em;color:var(--red-ink);margin:0 0 12px">09</p>
-          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Staff capability and confidence</p>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">Staff Capability &amp; Confidence</p>
           <p style="font-size:15px;line-height:1.55;color:var(--color-neutral-800);margin:10px 0 0">Where staff feel underprepared, and which professional learning has not landed.</p>
         </div>
         <div>
           <p style="font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:16px;letter-spacing:0.14em;color:var(--red-ink);margin:0 0 12px">10</p>
-          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">AI and digital workload reduction</p>
+          <p style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.26;letter-spacing:-0.01em;margin:0">AI &amp; Digital Workload Reduction</p>
           <p style="font-size:15px;line-height:1.55;color:var(--color-neutral-800);margin:10px 0 0">Which tasks AI can take on safely, which it cannot, and where the policy needs to be clear.</p>
         </div>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:24px clamp(32px,6vw,88px);margin-top:clamp(56px,7vw,88px);padding-top:32px;border-top:2px solid var(--color-accent-300)">
-        <p style="flex:0 0 auto;width:160px;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent);margin:0">What you get back</p>
-        <p style="flex:1 1 460px;font-family:var(--font-heading);font-weight:400;font-size:clamp(20px,2.1vw,27px);line-height:1.34;letter-spacing:-0.01em;color:var(--color-accent-800);margin:0;max-width:46ch">A short written summary: what is costing your staff hours, what would return them, and the order to do it in. Yours to act on, with or without us.</p>
+        <p style="flex:0 0 auto;width:160px;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent-700);margin:0">What you get back</p>
+        <p style="flex:1 1 460px;font-family:var(--font-heading);font-weight:500;font-size:clamp(20px,2.1vw,27px);line-height:1.34;letter-spacing:-0.01em;color:var(--color-accent-800);margin:0;max-width:46ch">A short written summary: what is costing your staff hours, what would return them, and the order to do it in. Yours to act on, with or without us.</p>
       </div>
     </div>
   </section>
@@ -332,7 +357,7 @@ a:hover { color: var(--color-accent); }
     <p style="flex:0 0 auto;width:160px;margin:0"><span style="display:block;font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:16px;letter-spacing:0.14em;color:var(--color-neutral-500);margin-bottom:8px">05</span><span style="display:block;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">How we work</span></p>
     <div style="flex:1 1 460px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px clamp(32px,4vw,64px);align-items:start">
       <div>
-        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(28px,3vw,38px);line-height:1.08;letter-spacing:-0.018em;margin:0;max-width:18ch">Fixed scope. Fixed fee. Something you can use.</h2>
+        <h2 style="font-family:var(--font-heading);font-weight:600;font-size:clamp(28px,3vw,38px);line-height:1.08;letter-spacing:-0.018em;margin:0;max-width:18ch">Fixed Scope. Fixed Fee. Something You Can Use.</h2>
         <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-800);margin:28px 0 0;max-width:46ch">The introductory meeting is a conversation, not a pitch. If there is nothing worth doing, we will say so. Where there is, the scope is written down before anything starts, and we will tell you plainly which fixes you should handle internally rather than buy.</p>
         <ol style="list-style:none;margin:32px 0 0;padding:0;display:grid;gap:16px">
           <li style="display:flex;gap:20px;font-size:16px;line-height:1.55;color:var(--color-neutral-800)"><span style="flex:0 0 auto;width:26px;font-family:var(--font-heading);font-weight:500;font-size:12px;line-height:25px;letter-spacing:0.1em;color:var(--color-accent)">01</span><span>An introductory meeting to work out what would genuinely help</span></li>
@@ -343,7 +368,7 @@ a:hover { color: var(--color-accent); }
         <p style="font-size:16px;line-height:1.7;margin:32px 0 0;max-width:46ch;color:var(--color-neutral-800)">Pricing is fixed scope, fixed fee, quoted after the introductory meeting. We will only ever offer a service that proactively benefits the school.</p>
       </div>
       <figure style="margin:0">
-        <img src="assets/staff-planning.webp" alt="Teachers working together around a table in a classroom" style="display:block;width:100%;aspect-ratio:951 / 665;object-fit:cover;filter:saturate(0.92) contrast(1.02)" />
+        <img src="assets/staff-planning.webp" alt="Teachers working together around a table in a classroom" style="display:block;width:100%;aspect-ratio:951 / 665;object-fit:cover;filter:saturate(1.06) contrast(1.04)" /><div style="height:3px;background:var(--sand)"></div>
       </figure>
     </div>
   </section>
@@ -352,8 +377,8 @@ a:hover { color: var(--color-accent); }
     <p style="flex:0 0 auto;width:160px;margin:0"><span style="display:block;font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:16px;letter-spacing:0.14em;color:var(--color-neutral-500);margin-bottom:8px">06</span><span style="display:block;font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Who you work with</span></p>
     <div style="flex:1 1 460px;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:48px clamp(32px,4vw,64px);align-items:start">
       <div>
-        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(32px,3.6vw,46px);line-height:1.04;letter-spacing:0.06em;text-transform:uppercase;margin:0;color:var(--color-accent)">Beth Claydon</h2>
-        <p style="font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-neutral-600);margin:18px 0 0">Founder and lead adviser</p>
+        <h2 style="font-family:var(--font-heading);font-weight:600;font-size:clamp(32px,3.6vw,46px);line-height:1.04;letter-spacing:0.06em;text-transform:uppercase;margin:0;color:var(--color-accent)">Beth Claydon</h2>
+        <p style="font-family:var(--font-heading);font-weight:400;font-size:11px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-neutral-600);margin:18px 0 0">Founder &amp; Lead Adviser</p>
         <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-800);margin:28px 0 0;max-width:50ch">Twenty years teaching Years 3 to 12 across Australia, London and Kent, fourteen of them at St Hilda&rsquo;s School, where she built and led St Hilda&rsquo;s@Home, an online learning program running well before remote learning was routine.</p>
         <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-800);margin:20px 0 0;max-width:50ch">Plenty of consultants have been teachers. Some have worked at a curriculum authority. Very few have done both, and almost none inside the Technologies learning area: the area schools are least confident in, and the one under the most pressure from AI.</p>
         <p style="font-size:16px;line-height:1.7;color:var(--color-neutral-800);margin:20px 0 0;max-width:50ch">In practice that means advice grounded in both ends of the same problem. What an eight week unit actually takes to deliver on a Tuesday, and how ACARA intended an achievement standard to be read.</p>
@@ -361,16 +386,16 @@ a:hover { color: var(--color-accent); }
       <div>
         <sc-if value="{{ showFounderPhoto }}" hint-placeholder-val="{{ true }}">
         <figure style="margin:0 0 44px">
-          <img src="assets/beth-claydon.png" alt="Portrait of Beth Claydon" style="display:block;width:100%;height:auto;filter:saturate(0.92) contrast(1.02)" />
+          <img src="assets/beth-claydon.png" alt="Portrait of Beth Claydon" style="display:block;width:100%;height:auto;filter:saturate(1.06) contrast(1.04)" /><div style="height:3px;background:var(--sand)"></div>
         </figure>
         </sc-if>
         <p style="font-family:var(--font-heading);font-weight:500;font-size:11px;line-height:16px;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-neutral-600);margin:0 0 20px">Selected experience</p>
         <ul style="list-style:none;margin:0;padding:0;display:grid;gap:16px">
-          <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Curriculum Officer and mentor, Digital Technologies in Focus</span><span style="display:block;font-size:14px;line-height:1.45;color:var(--color-neutral-700);margin-top:4px">ACARA &mdash; three years</span></li>
+          <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Curriculum Officer &amp; Mentor, Digital Technologies in Focus</span><span style="display:block;font-size:14px;line-height:1.45;color:var(--color-neutral-700);margin-top:4px">ACARA &mdash; three years</span></li>
           <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Senior Project Officer</span><span style="display:block;font-size:14px;line-height:1.45;color:var(--color-neutral-700);margin-top:4px">Queensland Curriculum and Assessment Authority</span></li>
-          <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Deputy Director of Teaching and Learning</span><span style="display:block;font-size:14px;line-height:1.45;color:var(--color-neutral-700);margin-top:4px">A.B. Paterson College</span></li>
-          <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Head of Digital Literacy and STEAM, Prep to 12</span><span style="display:block;font-size:14px;line-height:1.45;color:var(--color-neutral-700);margin-top:4px">A.B. Paterson College</span></li>
-          <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Technologies and Innovation Specialist</span><span style="display:block;font-size:14px;line-height:1.45;color:var(--color-neutral-700);margin-top:4px">Coomera Anglican College</span></li>
+          <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Deputy Director of Teaching &amp; Learning</span><span style="display:block;font-size:14px;line-height:1.45;color:var(--color-neutral-700);margin-top:4px">A.B. Paterson College</span></li>
+          <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Head of Digital Literacy &amp; STEAM, Prep to 12</span><span style="display:block;font-size:14px;line-height:1.45;color:var(--color-neutral-700);margin-top:4px">A.B. Paterson College</span></li>
+          <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Technologies &amp; Innovation Specialist</span><span style="display:block;font-size:14px;line-height:1.45;color:var(--color-neutral-700);margin-top:4px">Coomera Anglican College</span></li>
           <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Head of St Hilda&rsquo;s@Home</span><span style="display:block;font-size:14px;line-height:1.45;color:var(--color-neutral-700);margin-top:4px">St Hilda&rsquo;s School</span></li>
           <li><span style="display:block;font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.35;letter-spacing:-0.005em">Apple Distinguished Educator</span></li>
         </ul>
@@ -411,11 +436,11 @@ a:hover { color: var(--color-accent); }
     <div style="display:flex;flex-wrap:wrap;gap:40px clamp(32px,6vw,88px)">
       <img src="assets/thrive-mark-white.png" alt="" style="display:block;flex:0 0 auto;align-self:flex-start;width:132px;height:auto" />
       <div style="flex:1 1 460px">
-        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(30px,4.2vw,56px);line-height:1.04;letter-spacing:-0.02em;margin:0">
+        <h2 style="font-family:var(--font-heading);font-weight:600;font-size:clamp(30px,4.2vw,56px);line-height:1.04;letter-spacing:-0.02em;margin:0">
           <span style="display:block">Happy Teachers = Happy Schools.</span>
-          <span style="display:block;color:var(--color-accent-300)">Start with a conversation.</span>
+          <span style="display:block;color:var(--color-accent-2-300)">Start With A Conversation.</span>
         </h2>
-        <p style="font-size:17px;line-height:1.68;color:var(--color-accent-200);margin:28px 0 0;max-width:52ch">An introductory meeting costs nothing and commits you to nothing. We will tell you what we think is worth doing, and what is not.</p>
+        <p style="font-size:17px;line-height:1.68;color:#ffffff;margin:28px 0 0;max-width:52ch">An introductory meeting costs nothing and commits you to nothing. We will tell you what we think is worth doing, and what is not.</p>
         <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:40px;padding-top:32px;border-top:2px solid var(--color-accent-400)">
           <a class="btn" href="mailto:hello@thrive-education-consulting.com.au" style="background:#fff;color:var(--color-accent-700);font-family:var(--font-heading);font-weight:500;letter-spacing:0.02em;padding:14px 24px">hello@thrive-education-consulting.com.au</a>
         </div>
@@ -425,9 +450,15 @@ a:hover { color: var(--color-accent); }
 </section>
 
 <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
-  <footer style="display:flex;flex-wrap:wrap;gap:12px clamp(32px,6vw,88px);padding:44px 0;font-size:14px;line-height:1.6;color:var(--color-neutral-700)">
-    <span style="flex:0 0 auto;width:160px;font-family:var(--font-heading);font-weight:500;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-accent)">Thrive Education Consulting</span>
-    <span>Independent, Catholic and Anglican schools &mdash; South East Queensland</span>
+  <footer style="display:flex;flex-wrap:wrap;align-items:center;gap:26px clamp(32px,6vw,88px);padding:52px 0;font-size:14px;line-height:1.6;color:var(--color-neutral-700)">
+    <a href="#top" style="flex:0 0 auto;display:flex;align-items:center;gap:13px;text-decoration:none">
+      <img src="assets/thrive-mark.png" alt="" style="display:block;width:44px;height:auto" />
+      <span style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-family:var(--font-heading);font-weight:500;font-size:16px;line-height:1;letter-spacing:0.26em;color:var(--color-accent)">THRIVE</span>
+        <span style="font-family:var(--font-heading);font-weight:400;font-size:8px;line-height:1;letter-spacing:0.19em;text-transform:uppercase;color:var(--color-neutral-600)">Education Consulting</span>
+      </span>
+    </a>
+    <span style="flex:1 1 240px;max-width:38ch">Independent, Catholic and Anglican schools &mdash; South East Queensland</span>
     <span><a href="mailto:hello@thrive-education-consulting.com.au">hello@thrive-education-consulting.com.au</a></span>
   </footer>
 </div>
